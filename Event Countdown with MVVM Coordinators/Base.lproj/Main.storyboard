@@ -23,6 +23,21 @@
             </objects>
             <point key="canvasLocation" x="107" y="37"/>
         </scene>
+        <!--Add Event View Controller-->
+        <scene sceneID="5CX-gX-qJU">
+            <objects>
+                <viewController storyboardIdentifier="AddEventViewController" id="UMS-aF-n8d" customClass="AddEventViewController" customModule="Event_Countdown_with_MVVM_Coordinators" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kO0-UY-9ws">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Vjh-8X-M2D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Set-cX-34d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="12"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

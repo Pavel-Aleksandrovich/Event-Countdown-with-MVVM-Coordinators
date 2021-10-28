@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator: AnyObject {
     var childCoordinators: [Coordinator] { get }
     func start()
 }
@@ -34,6 +34,4 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
-    
-    
 }
