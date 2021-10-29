@@ -23,6 +23,8 @@
 		847B3584272AAD3500729F58 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3583272AAD3500729F58 /* AddEventViewController.swift */; };
 		847B3586272AADBD00729F58 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3585272AADBD00729F58 /* UIViewController + Extensions.swift */; };
 		847B3588272AB18800729F58 /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B3587272AB18800729F58 /* AddEventViewModel.swift */; };
+		847B358B272C058400729F58 /* TitleSubtitleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B358A272C058400729F58 /* TitleSubtitleCellViewModel.swift */; };
+		847B358D272C073D00729F58 /* TitleSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B358C272C073D00729F58 /* TitleSubtitleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		847B3583272AAD3500729F58 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		847B3585272AADBD00729F58 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		847B3587272AB18800729F58 /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
+		847B358A272C058400729F58 /* TitleSubtitleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCellViewModel.swift; sourceTree = "<group>"; };
+		847B358C272C073D00729F58 /* TitleSubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		847B355A272A5FB800729F58 /* Event Countdown with MVVM Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				847B358E272C074B00729F58 /* Views */,
 				847B3589272AB1B400729F58 /* ViewModel */,
 				847B3578272A7D6200729F58 /* Controllers */,
 				847B3577272A7D5300729F58 /* Coordinators */,
@@ -83,11 +88,11 @@
 				847B3561272A5FB800729F58 /* Main.storyboard */,
 				847B355D272A5FB800729F58 /* SceneDelegate.swift */,
 				847B355B272A5FB800729F58 /* AppDelegate.swift */,
-				847B357D272A960300729F58 /* CoreDataManager.swift */,
 				847B3564272A5FB900729F58 /* Assets.xcassets */,
 				847B3566272A5FB900729F58 /* LaunchScreen.storyboard */,
 				847B3569272A5FB900729F58 /* Info.plist */,
 				847B357A272A7DD400729F58 /* Model.xcdatamodeld */,
+				847B357D272A960300729F58 /* CoreDataManager.swift */,
 			);
 			path = "Event Countdown with MVVM Coordinators";
 			sourceTree = "<group>";
@@ -95,8 +100,8 @@
 		847B3577272A7D5300729F58 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				847B3571272A67B900729F58 /* EventListCoordinator.swift */,
 				847B356F272A617700729F58 /* AppCoordinator.swift */,
+				847B3571272A67B900729F58 /* EventListCoordinator.swift */,
 				847B3581272AAA2200729F58 /* AddEventCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -125,8 +130,17 @@
 			children = (
 				847B357F272AA48900729F58 /* EventListViewModel.swift */,
 				847B3587272AB18800729F58 /* AddEventViewModel.swift */,
+				847B358A272C058400729F58 /* TitleSubtitleCellViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		847B358E272C074B00729F58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				847B358C272C073D00729F58 /* TitleSubtitleCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847B358B272C058400729F58 /* TitleSubtitleCellViewModel.swift in Sources */,
 				847B3570272A617700729F58 /* AppCoordinator.swift in Sources */,
 				847B3574272A688500729F58 /* EventListViewController.swift in Sources */,
 				847B3576272A6D5500729F58 /* UIColor + Extensions.swift in Sources */,
@@ -210,6 +225,7 @@
 				847B3584272AAD3500729F58 /* AddEventViewController.swift in Sources */,
 				847B3580272AA48900729F58 /* EventListViewModel.swift in Sources */,
 				847B357E272A960300729F58 /* CoreDataManager.swift in Sources */,
+				847B358D272C073D00729F58 /* TitleSubtitleCell.swift in Sources */,
 				847B3586272AADBD00729F58 /* UIViewController + Extensions.swift in Sources */,
 				847B3572272A67B900729F58 /* EventListCoordinator.swift in Sources */,
 			);
