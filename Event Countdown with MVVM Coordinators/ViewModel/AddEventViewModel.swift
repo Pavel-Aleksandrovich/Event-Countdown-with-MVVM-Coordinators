@@ -16,7 +16,7 @@ final class AddEventViewModel {
         case titleSubtitle(TitleSubtitleCellViewModel)
     }
     private(set) var cells: [AddEventViewModel.Cell] = []
-    var coordinator: AddEventCoordinator?
+    weak var coordinator: AddEventCoordinator?
     
     func viewDidLoad() {
         cells = [
@@ -53,6 +53,17 @@ final class AddEventViewModel {
         switch cells[indexPath.row] {
         case .titleSubtitle(let titleSubtitleCellViewModel):
             titleSubtitleCellViewModel.update(subtitle)
+        }
+    }
+    func didSelectRow(at indexPath: IndexPath) {
+        switch cells[indexPath.row] {
+        case .titleSubtitle(let titleSubtitleCellViewModel):
+            guard titleSubtitleCellViewModel.type == .image else {
+                return
+            }
+            coordinator?.showImagePicker { image in
+                titleSubtitleCellViewModel.update(image)
+            }
         }
     }
 }
