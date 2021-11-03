@@ -9,9 +9,19 @@ import UIKit
 
 final class TitleSubtitleCell: UITableViewCell {
     private let titleLabel = UILabel()
-    private let subtitleTextField = UITextField()
+    let subtitleTextField = UITextField()
     private let verticalStackView = UIStackView()
     private let constant: CGFloat = 15
+    
+    private let datePickerView = UIDatePicker()
+    private let toolbar = UIToolbar(frame: .init(x: 0, y: 0, width: 100, height: 100))
+    lazy var doneButton: UIBarButtonItem = {
+        UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
+    }()
+    
+    private let photoImageView = UIImageView()
+
+    private var viewModel: TitleSubtitleCellViewModel?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,9 +36,17 @@ final class TitleSubtitleCell: UITableViewCell {
     }
     
     func update(with viewModel: TitleSubtitleCellViewModel) {
+        self.viewModel = viewModel
         titleLabel.text = viewModel.title
         subtitleTextField.text = viewModel.subtitle
         subtitleTextField.placeholder = viewModel.placeholder
+        
+        subtitleTextField.inputView = viewModel.type == .text ? nil : datePickerView
+        subtitleTextField.inputAccessoryView = viewModel.type == .text ? nil : toolbar
+        
+        photoImageView.isHidden = viewModel.type != .image
+        subtitleTextField.isHidden = viewModel.type == .image
+        verticalStackView.spacing = viewModel.type == .image ? 15 : verticalStackView.spacing
     }
     
     private func setupViews() {
@@ -39,12 +57,17 @@ final class TitleSubtitleCell: UITableViewCell {
         [verticalStackView, titleLabel, subtitleTextField].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        toolbar.setItems([doneButton], animated: false)
+        datePickerView.datePickerMode = .date
+        photoImageView.backgroundColor = .black.withAlphaComponent(0.3)
+        photoImageView.layer.cornerRadius = 15
     }
     
     private func setupHierarchy() {
         contentView.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(subtitleTextField)
+        verticalStackView.addArrangedSubview(photoImageView)
     }
     
     private func setupLayout() {
@@ -56,7 +79,11 @@ final class TitleSubtitleCell: UITableViewCell {
             verticalStackView.bottomAnchor.constraint(equalTo:
                                                         contentView.bottomAnchor, constant: -constant),
             verticalStackView.rightAnchor.constraint(equalTo:
-                                                        contentView.rightAnchor, constant: constant)
+                                                        contentView.rightAnchor, constant: -constant)
         ])
+        photoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
+    @objc private func tappedDone() {
+        viewModel?.update(datePickerView.date)
     }
 }
